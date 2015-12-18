@@ -1,0 +1,16 @@
+PODS:
+  - Alamofire (2.0.2)
+  - SwiftyDropbox (1.0.1):
+    - Alamofire (~> 2.0.2)
+  - UIColor_Hex_Swift (1.8)
+
+DEPENDENCIES:
+  - SwiftyDropbox (~> 1.0.1)
+  - UIColor_Hex_Swift (~> 1.8)
+
+SPEC CHECKSUMS:
+  Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
+  SwiftyDropbox: 142f8404d4f74b84c7ea4220ea78faff132c0c8d
+  UIColor_Hex_Swift: a66b9d5f6e8fddbd9fe32996504f0b7e9d20d680
+
+COCOAPODS: 0.39.0
