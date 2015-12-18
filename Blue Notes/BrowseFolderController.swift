@@ -12,21 +12,11 @@ import SwiftyDropbox
 class BrowseFolderController: UITableViewController {
     internal var files : [Files.Metadata] = []
     internal var path : String = ""
-    internal var sort : String = "alpha"
+    internal var sortType : String = "alpha"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = self.title ?? "All Files"
-    }
-    
-    func printFonts() {
-        let fontFamilyNames = UIFont.familyNames()
-        for familyName in fontFamilyNames {
-            print("------------------------------")
-            print("Font Family Name = [\(familyName)]")
-            let names = UIFont.fontNamesForFamilyName(familyName)
-            print("Font Names = [\(names)]")
-        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -41,21 +31,25 @@ class BrowseFolderController: UITableViewController {
                     for entry in result.entries {
                         self.files.append(entry)
                         if entry.name.hasSuffix(".md") {
-                            self.sort = "date"
+                            self.sortType = "date"
                         }
                     }
-                    print(self.sort)
-                    if self.sort == "alpha" {
-                        self.files = self.files.sort { $0.name.lowercaseString < $1.name.lowercaseString }
-                    } else {
-                        self.files = self.files.sort {
-                            ($0 as! Files.FileMetadata).clientModified.timeIntervalSince1970 > ($1 as! Files.FileMetadata).clientModified.timeIntervalSince1970
-                        }
-                    }
+                    self.sortFiles()
                     self.tableView.reloadData()
                 } else {
                     print("Error: \(error!)")
                 }
+            }
+        }
+    }
+    
+    func sortFiles() {
+        print(self.sortType)
+        if self.sortType == "alpha" {
+            self.files = self.files.sort { $0.name.lowercaseString < $1.name.lowercaseString }
+        } else {
+            self.files = self.files.sort {
+                ($0 as! Files.FileMetadata).clientModified.timeIntervalSince1970 > ($1 as! Files.FileMetadata).clientModified.timeIntervalSince1970
             }
         }
     }
