@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 import SwiftyDropbox
 import UIColor_Hex_Swift
+import SyntaxKit
 
 class NoteEditViewController: UIViewController {
     internal var path: String = ""
@@ -49,11 +50,37 @@ class NoteEditViewController: UIViewController {
                 if let (_, url) = response {
                     let data = NSData(contentsOfURL: url)
                     let txt = String(data: data!, encoding:NSUTF8StringEncoding)
-                    self.textView.text = txt
+                    self.textView.attributedText = self.stringToAttributedString(txt!)
                 } else {
                     print(error!)
                 }
             }
         }
+    }
+        
+    func pathExtension() -> String! {
+        let extensionArr = self.path.characters.split{$0 == "."}.map(String.init)
+        return extensionArr.last
+    }
+    
+    func stringToAttributedString(txt: String) -> NSAttributedString! {
+        let str : NSMutableAttributedString = NSMutableAttributedString(string: txt, attributes: [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Fira Code", size: 16)!])
+        let syntax = Syntaxes().getSyntaxForExtension(self.pathExtension())
+        let theme = Themes().getTheme("material")
+        
+        for (pattern, styleType) in syntax {
+            let expression = try! NSRegularExpression(pattern: pattern, options: [.AnchorsMatchLines])
+            let matches = expression.matchesInString(txt, options: [], range:NSMakeRange(0, txt.characters.count))
+            for match in matches {
+                print(match)
+                let styleObj = theme[styleType]
+                if styleObj != nil {
+                    str.addAttributes(styleObj!, range: match.range)
+                }
+                
+            }
+        }
+        
+        return str
     }
 }
