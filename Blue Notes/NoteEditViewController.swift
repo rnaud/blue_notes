@@ -19,9 +19,7 @@ class NoteEditViewController: UIViewController {
     override func viewDidLoad() {
         textView.frame = CGRectMake(0, 0, view.frame.width, view.frame.height)
         textView.textContainerInset = UIEdgeInsetsMake(20, 20, 20, 20);
-        textView.textColor = UIColor(rgba: "#FF5370")
         textView.backgroundColor = UIColor(rgba: "#263238")
-        textView.font = UIFont(name: "Fira Code", size: 16)
         view.addSubview(textView)
     }
     
@@ -64,7 +62,7 @@ class NoteEditViewController: UIViewController {
     }
     
     func stringToAttributedString(txt: String) -> NSAttributedString! {
-        let str : NSMutableAttributedString = NSMutableAttributedString(string: txt, attributes: [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Fira Code", size: 16)!])
+        let str : NSMutableAttributedString = NSMutableAttributedString(string: txt, attributes: Themes().defaultAttributedStringAttributes())
         let syntax = Syntaxes().getSyntaxForExtension(self.pathExtension())
         let theme = Themes().getTheme("material")
         
@@ -72,7 +70,6 @@ class NoteEditViewController: UIViewController {
             let expression = try! NSRegularExpression(pattern: pattern, options: [.AnchorsMatchLines])
             let matches = expression.matchesInString(txt, options: [], range:NSMakeRange(0, txt.characters.count))
             for match in matches {
-                print(match)
                 let styleObj = theme[styleType]
                 if styleObj != nil {
                     str.addAttributes(styleObj!, range: match.range)

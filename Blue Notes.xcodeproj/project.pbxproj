@@ -13,12 +13,11 @@
 		515676AE1C053742008D3347 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515676AD1C053742008D3347 /* SettingsViewController.swift */; };
 		51985F9D1C248E2A00E1B86E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51985F9C1C248E2A00E1B86E /* Assets.xcassets */; };
 		51985FA61C24A9C100E1B86E /* FiraCode-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 51985FA31C24A9C100E1B86E /* FiraCode-Regular.otf */; };
-		51985FA71C24A9C100E1B86E /* Markdown.tmLanguage in Resources */ = {isa = PBXBuildFile; fileRef = 51985FA51C24A9C100E1B86E /* Markdown.tmLanguage */; };
-		51985FAA1C24AB1C00E1B86E /* Tomorrow.tmTheme in Resources */ = {isa = PBXBuildFile; fileRef = 51985FA91C24AB1C00E1B86E /* Tomorrow.tmTheme */; };
+		51B846921C24E5B700D4BDE6 /* FiraCode-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 51B846901C24E5B700D4BDE6 /* FiraCode-Bold.otf */; };
+		51B846931C24E5B700D4BDE6 /* FiraCode-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 51B846911C24E5B700D4BDE6 /* FiraCode-Medium.otf */; };
 		51BEF5131C05390B0095112B /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BEF5121C05390B0095112B /* TabViewController.swift */; };
 		51BEF5151C0539520095112B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BEF5141C0539520095112B /* LoginViewController.swift */; };
 		51F03D221C2375A2001C4E76 /* NoteEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F03D211C2375A2001C4E76 /* NoteEditViewController.swift */; };
-		51FF732F1C24B3B1003A356C /* Ruby.tmLanguage in Resources */ = {isa = PBXBuildFile; fileRef = 51FF732E1C24B3B1003A356C /* Ruby.tmLanguage */; };
 		51FF73311C24DAC0003A356C /* Syntaxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FF73301C24DAC0003A356C /* Syntaxes.swift */; };
 		51FF73331C24DB52003A356C /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FF73321C24DB52003A356C /* Themes.swift */; };
 /* End PBXBuildFile section */
@@ -32,13 +31,12 @@
 		515676B71C053742008D3347 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51985F9C1C248E2A00E1B86E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51985FA31C24A9C100E1B86E /* FiraCode-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraCode-Regular.otf"; sourceTree = "<group>"; };
-		51985FA51C24A9C100E1B86E /* Markdown.tmLanguage */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Markdown.tmLanguage; sourceTree = "<group>"; };
-		51985FA91C24AB1C00E1B86E /* Tomorrow.tmTheme */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tomorrow.tmTheme; sourceTree = "<group>"; };
+		51B846901C24E5B700D4BDE6 /* FiraCode-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraCode-Bold.otf"; sourceTree = "<group>"; };
+		51B846911C24E5B700D4BDE6 /* FiraCode-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraCode-Medium.otf"; sourceTree = "<group>"; };
 		51BEF5121C05390B0095112B /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		51BEF5141C0539520095112B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		51F03D211C2375A2001C4E76 /* NoteEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteEditViewController.swift; sourceTree = "<group>"; };
 		51F03D241C248432001C4E76 /* Keys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Keys.xcconfig; sourceTree = "<group>"; };
-		51FF732E1C24B3B1003A356C /* Ruby.tmLanguage */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Ruby.tmLanguage; sourceTree = "<group>"; };
 		51FF73301C24DAC0003A356C /* Syntaxes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Syntaxes.swift; sourceTree = "<group>"; };
 		51FF73321C24DB52003A356C /* Themes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 		BB01830F14FAB186B491B6AF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -107,8 +105,6 @@
 			isa = PBXGroup;
 			children = (
 				51985FA21C24A9C100E1B86E /* Fonts */,
-				51985FA41C24A9C100E1B86E /* Syntax */,
-				51985FA81C24AB1C00E1B86E /* Themes */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -117,25 +113,10 @@
 			isa = PBXGroup;
 			children = (
 				51985FA31C24A9C100E1B86E /* FiraCode-Regular.otf */,
+				51B846901C24E5B700D4BDE6 /* FiraCode-Bold.otf */,
+				51B846911C24E5B700D4BDE6 /* FiraCode-Medium.otf */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		51985FA41C24A9C100E1B86E /* Syntax */ = {
-			isa = PBXGroup;
-			children = (
-				51FF732E1C24B3B1003A356C /* Ruby.tmLanguage */,
-				51985FA51C24A9C100E1B86E /* Markdown.tmLanguage */,
-			);
-			path = Syntax;
-			sourceTree = "<group>";
-		};
-		51985FA81C24AB1C00E1B86E /* Themes */ = {
-			isa = PBXGroup;
-			children = (
-				51985FA91C24AB1C00E1B86E /* Tomorrow.tmTheme */,
-			);
-			path = Themes;
 			sourceTree = "<group>";
 		};
 		51F03D231C2483DC001C4E76 /* Config */ = {
@@ -217,10 +198,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				51985F9D1C248E2A00E1B86E /* Assets.xcassets in Resources */,
-				51985FA71C24A9C100E1B86E /* Markdown.tmLanguage in Resources */,
+				51B846931C24E5B700D4BDE6 /* FiraCode-Medium.otf in Resources */,
 				51985FA61C24A9C100E1B86E /* FiraCode-Regular.otf in Resources */,
-				51985FAA1C24AB1C00E1B86E /* Tomorrow.tmTheme in Resources */,
-				51FF732F1C24B3B1003A356C /* Ruby.tmLanguage in Resources */,
+				51B846921C24E5B700D4BDE6 /* FiraCode-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

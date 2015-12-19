@@ -12,7 +12,7 @@ import UIColor_Hex_Swift
 class Themes : NSObject {
     let material: [String: [String: AnyObject]] = [
         "header" : [NSForegroundColorAttributeName: UIColor(rgba: "#78CCEC")],
-        "emphasis" : [NSForegroundColorAttributeName: UIColor(rgba: "#F5A731")],
+        "emphasis" : [NSForegroundColorAttributeName: UIColor(rgba: "#F5A731"), NSFontAttributeName: UIFont(name: "FiraCode-Bold", size: 16)!],
         "ul" : [NSForegroundColorAttributeName: UIColor(rgba: "#FF5370")],
         "link" : [NSForegroundColorAttributeName: UIColor(rgba: "#F5A731")],
     ]
@@ -23,5 +23,9 @@ class Themes : NSObject {
         } else {
             return material
         }
+    }
+    
+    func defaultAttributedStringAttributes() -> [String: AnyObject] {
+     return [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "FiraCode-Regular", size: 16)!]
     }
 }

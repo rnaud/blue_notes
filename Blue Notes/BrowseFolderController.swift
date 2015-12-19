@@ -18,7 +18,7 @@ class BrowseFolderController: UITableViewController {
         super.viewDidLoad()
         title = self.title ?? "All Files"
     }
-    
+
     override func viewWillAppear(animated: Bool) {
         listFiles(self.path)
     }
@@ -44,7 +44,6 @@ class BrowseFolderController: UITableViewController {
     }
     
     func sortFiles() {
-        print(self.sortType)
         if self.sortType == "alpha" {
             self.files = self.files.sort { $0.name.lowercaseString < $1.name.lowercaseString }
         } else {
