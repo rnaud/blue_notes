@@ -16,9 +16,11 @@ class TabViewController: UITabBarController {
         
         let nav1 = UINavigationController()
         nav1.viewControllers = [BrowseFolderController()]
+        nav1.tabBarItem.image = UIImage(named: "folder.png")?.resize(CGSizeMake(30, 30))
         
         let nav2 = UINavigationController()
         nav2.viewControllers = [SettingsViewController()]
+        nav2.tabBarItem.image = UIImage(named: "settings.png")?.resize(CGSizeMake(30, 30))
         
         viewControllers = [nav1, nav2];
     }

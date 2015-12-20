@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>header</key>
+	<string>(#+)(.*)</string>
+	<key>emphasis</key>
+	<string>\*\*[A-z0-9]+\*\*</string>
+	<key>ul</key>
+	<string>\n\*(.*)</string>
+	<key>ul</key>
+	<string>\r\*(.*)</string>
+	<key>ul</key>
+	<string>\t\*(.*)</string>
+	<key>url</key>
+	<string>\[(.*?)\]\((\S+)(\s+(\"|\')(.*?)(\"|\'))?\)</string>
+</dict>
+</plist>

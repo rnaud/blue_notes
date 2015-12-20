@@ -57,6 +57,11 @@ class BrowseFolderController: UITableViewController {
         let cell = UITableViewCell()
         let entry = self.files[indexPath.row]
         cell.textLabel!.text = entry.name
+        if (entry is Files.FolderMetadata) {
+            cell.imageView!.image = UIImage(named: "folder.png")
+        } else {
+            cell.imageView!.image = UIImage(named: "document.png")
+        }
         return cell
     }
     

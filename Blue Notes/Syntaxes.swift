@@ -8,29 +8,21 @@
 
 import Foundation
 
-class Syntaxes : NSObject {
-    let markdownSyntax: [String: String] = [
-        "(#+)(.*)" : "header",
-        "\\*\\*[A-z0-9]+\\*\\*" : "emphasis",
-        "\\n\\*(.*)" : "ul",
-        "\\r\\*(.*)" : "ul",
-        "\\t\\*(.*)" : "ul",
-        "\\[(.*?)\\]\\((\\S+)(\\s+(\"|\')(.*?)(\"|\'))?\\)": "link"
-    ]
-    
-    let defaultSyntax: [String: String] = ["": ""]
-    
+class Syntaxes : NSObject {    
     func getSyntax(syntaxName: String) -> [String: String] {
-        if (syntaxName == "markdown") {
-            return markdownSyntax
+        let path = NSBundle.mainBundle().pathForResource(syntaxName, ofType: "plist")
+        if path != nil {
+            return NSDictionary(contentsOfFile: path!) as! [String: String]
         } else {
-            return defaultSyntax
+            return Dictionary()
         }
     }
     
     func getSyntaxForExtension(ext: String) -> [String: String] {
         if ext == "md" {
             return getSyntax("markdown")
+        } else if ext == "rb" {
+            return getSyntax("ruby")
         } else {
             return getSyntax("default")
         }

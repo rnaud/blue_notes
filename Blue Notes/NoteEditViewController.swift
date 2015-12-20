@@ -12,14 +12,18 @@ import SwiftyDropbox
 import UIColor_Hex_Swift
 import SyntaxKit
 
-class NoteEditViewController: UIViewController {
+class NoteEditViewController: UIViewController, UITextViewDelegate {
     internal var path: String = ""
     internal var textView: UITextView = UITextView()
+    internal var textViewString: NSMutableAttributedString = NSMutableAttributedString()
+    internal var themeStr: String = "material"
+    internal var theme: Theme = Theme()
     
     override func viewDidLoad() {
         textView.frame = CGRectMake(0, 0, view.frame.width, view.frame.height)
         textView.textContainerInset = UIEdgeInsetsMake(20, 20, 20, 20);
-        textView.backgroundColor = UIColor(rgba: "#263238")
+        textView.backgroundColor = self.theme.backgroundColor()
+        textView.delegate = self
         view.addSubview(textView)
     }
     
@@ -48,7 +52,13 @@ class NoteEditViewController: UIViewController {
                 if let (_, url) = response {
                     let data = NSData(contentsOfURL: url)
                     let txt = String(data: data!, encoding:NSUTF8StringEncoding)
-                    self.textView.attributedText = self.stringToAttributedString(txt!)
+                    if txt == nil {
+                        return
+                    }
+                    self.textViewString = NSMutableAttributedString(string: txt!, attributes: self.theme.defaultStrAttributes())
+//                    self.textView.attributedText = self.stringToAttributedString(txt!)
+                    self.highlightSyntax()
+                    self.textView.attributedText = self.textViewString
                 } else {
                     print(error!)
                 }
@@ -61,23 +71,27 @@ class NoteEditViewController: UIViewController {
         return extensionArr.last
     }
     
-    func stringToAttributedString(txt: String) -> NSAttributedString! {
-        let str : NSMutableAttributedString = NSMutableAttributedString(string: txt, attributes: Themes().defaultAttributedStringAttributes())
+    func highlightSyntax() {
+        self.textViewString.setAttributes(self.theme.defaultStrAttributes(), range: NSMakeRange(0, self.textViewString.string.characters.count))
         let syntax = Syntaxes().getSyntaxForExtension(self.pathExtension())
-        let theme = Themes().getTheme("material")
         
-        for (pattern, styleType) in syntax {
+        for (styleType, pattern) in syntax {
+            print(pattern)
+            print(styleType)
             let expression = try! NSRegularExpression(pattern: pattern, options: [.AnchorsMatchLines])
-            let matches = expression.matchesInString(txt, options: [], range:NSMakeRange(0, txt.characters.count))
+            let matches = expression.matchesInString(self.textViewString.string, options: [], range:NSMakeRange(0, self.textViewString.string.characters.count))
             for match in matches {
-                let styleObj = theme[styleType]
+                let styleObj = self.theme.getTheme()[styleType]
                 if styleObj != nil {
-                    str.addAttributes(styleObj!, range: match.range)
+                    self.textViewString.addAttributes(styleObj!, range: match.range)
                 }
                 
             }
         }
-        
-        return str
+    }
+    
+    func textViewDidChange(textView: UITextView) {
+        self.highlightSyntax()
+//        self.textView.attributedText = self.textViewString
     }
 }
