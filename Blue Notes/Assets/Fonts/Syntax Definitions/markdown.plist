@@ -7,12 +7,8 @@
 	<key>emphasis</key>
 	<string>\*\*[A-z0-9]+\*\*</string>
 	<key>ul</key>
-	<string>\n\*(.*)</string>
-	<key>ul</key>
-	<string>\r\*(.*)</string>
-	<key>ul</key>
-	<string>\t\*(.*)</string>
+	<string>(\t|\r|\n)\*(.*)</string>
 	<key>url</key>
-	<string>\[(.*?)\]\((\S+)(\s+(\"|\')(.*?)(\"|\'))?\)</string>
+	<string>\[(.*?)\]\((\S+)(\s+(\&quot;|\&apos;)(.*?)(\&quot;|\&apos;))?\)</string>
 </dict>
 </plist>

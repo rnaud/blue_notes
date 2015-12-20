@@ -24,6 +24,7 @@ class NoteEditViewController: UIViewController, UITextViewDelegate {
         textView.textContainerInset = UIEdgeInsetsMake(20, 20, 20, 20);
         textView.backgroundColor = self.theme.backgroundColor()
         textView.delegate = self
+        textView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         view.addSubview(textView)
     }
     
@@ -91,7 +92,10 @@ class NoteEditViewController: UIViewController, UITextViewDelegate {
     }
     
     func textViewDidChange(textView: UITextView) {
+        let currentRange = self.textView.selectedRange
+        self.textViewString = self.textView.attributedText.mutableCopy() as! NSMutableAttributedString
         self.highlightSyntax()
-//        self.textView.attributedText = self.textViewString
+        self.textView.attributedText = self.textViewString
+        self.textView.selectedRange = currentRange
     }
 }
